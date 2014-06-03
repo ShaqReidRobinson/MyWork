@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+	<link href="css.css" rel="stylesheet" type="text/css" />
+	
+<script>
+$(document).on("mobileinit", function(){
+$.mobile.defaultPageTransition = "slide";
+});
+</script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>	
+</head>
+<body>
+<div data-role="page" id="login">
+	<div data-role="header">
+		<h1>Group Chat</h1>
+			<h2>Login/Register in below to begin chatting!!!</h2>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#chatroom">Chatroom</a></li>
+				</ul>
+			</div>
+		</div>
+	<div data-role="content">	
+<section id="logIn">
+	Username:<input type ="form" id="usernameInput"/>
+	Password:<input type ="form" id="passwordInput"/>
+	<span id="logInButton">
+	<input type="button"  value="Register" id="registerBtn">
+	<input type="button"  value="Submit" id="logInBtn">
+	</span>
+</section>
+</div>
+</div>
+<div data-role="page" id="chatroom">
+	<div data-role="header">
+		<h1>Group Chat<h1>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#login">Login</a></li>
+				<li><a href="#login">Register</a></li>
+			</ul>
+		</div>	
+	</div>
+	<div data-role="content">
+		<table id="messageDisplay"></table>
+		<form id="sendmsg">
+			<input type="text" id="messageInput" placeholder="Start typing to create your message!" />
+			<input type="submit" value="Send" data-role="button" data-inline="true" data-theme="b" />
+		</form>
+	</div>
+</section>
+</div>
+</body>
+</html>
