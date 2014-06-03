@@ -34,24 +34,24 @@ getChat();
 
 function getChat() {
 var xhr = null;
-if(window.ActiveXObject) {
-xhr = new ActiveXObject("Microsoft.XMLHTTP");
-} else if(window.XMLHttpRequest) {
-xhr = new XMLHttpRequest();
-}
+	if(window.ActiveXObject) {
+	xhr = new ActiveXObject("Microsoft.XMLHTTP");
+	} else if(window.XMLHttpRequest) {
+		xhr = new XMLHttpRequest();
+	}
 if(xhr) {
-xhr.onreadystatechange = function() {
-if(xhr.readyState === 4) {
-if(xhr.status === 200) {
-var value = xhr.responseXML;
-var msgs = value.getElementsByTagName('message');
-console.log("Processing ", msgs.length, " messages");
-var tbl = document.getElementById("messageDisplay");
-for(var i = 0; i < msgs.length; i++) {
-var id = parseInt(msgs[i].getAttribute("id"));
-if(lastid < id) {
-lastid = id;
-}
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState === 4) {
+			if(xhr.status === 200) {
+				var value = xhr.responseXML;
+				var msgs = value.getElementsByTagName('message');
+				console.log("Processing ", msgs.length, " messages");
+				var tbl = document.getElementById("messageDisplay");
+					for(var i = 0; i < msgs.length; i++) {
+						var id = parseInt(msgs[i].getAttribute("id"));
+							if(lastid < id) {
+								lastid = id;
+							}
 tbl.innerHTML += "<tr><td>" + msgs[i].childNodes[1].firstChild.nodeValue + "</td></tr>";
 }
 if(doTimeout) {
@@ -71,18 +71,18 @@ function sendMsgs() {
 var val = document.getElementById("messageInput").value;
 // Check val is ok before doing AJAX
 var xhr = null;
-if(window.ActiveXObject) {
-xhr = new ActiveXObject("Microsoft.XMLHTTP");
-} else if(window.XMLHttpRequest) {
-xhr = new XMLHttpRequest();
-}
+	if(window.ActiveXObject) {
+		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+		} else if(window.XMLHttpRequest) {
+			xhr = new XMLHttpRequest();
+			}
 if(xhr) {
-xhr.onreadystatechange = function() {
-if(xhr.readyState === 4) {
-if(xhr.status === 200) {
-alert(xhr.responseText);
-}
-}
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState === 4) {
+			if(xhr.status === 200) {
+		alert(xhr.responseText);
+		}
+	}
 };
 xhr.open("POST", "http://itsuite.it.brighton.ac.uk/john10/ci227/a1/send.php", true);
 xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
